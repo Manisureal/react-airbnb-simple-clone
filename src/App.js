@@ -12,8 +12,18 @@ class App extends Component {
     };
 
     return (
-      <div>
-        <Flat building={flat} />
+      <div className="app">
+        <div className="main">
+          <div className="search">
+          </div>
+          <div className="flats">
+            <Flat building={flat} />
+            <Flat building={flat} />
+            <Flat building={flat} />
+          </div>
+        </div>
+        <div className="map">
+        </div>
       </div>
     );
   }
