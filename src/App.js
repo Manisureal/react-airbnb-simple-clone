@@ -11,15 +11,17 @@ class App extends Component {
       "imageUrl": `https://images.unsplash.com/photo-1498450067505-1e6cec4224fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80`
     };
 
+    const flats = [ flat, flat, flat ]
+
     return (
       <div className="app">
         <div className="main">
           <div className="search">
           </div>
           <div className="flats">
-            <Flat building={flat} />
-            <Flat building={flat} />
-            <Flat building={flat} />
+            {flats.map(function(flat){
+              return <Flat building={flat}/>
+            })}
           </div>
         </div>
         <div className="map">
