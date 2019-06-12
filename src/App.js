@@ -8,8 +8,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      flats: []
+      flats: [],
+      selectedFlat: null
     };
+    console.log(this)
   }
 
   componentDidMount() {
@@ -23,6 +25,13 @@ class App extends Component {
       })
   }
 
+  selectFlat = (flat) => {
+    this.setState({
+      selectedFlat: flat
+    })
+    console.log(flat)
+  }
+
   render() {
     const center = {
       // France co-ordinates
@@ -30,15 +39,16 @@ class App extends Component {
       lng: 2.3522
     }
 
+
     return (
       <div className="app">
         <div className="main">
           <div className="search">
           </div>
           <div className="flats">
-            { this.state.flats.map(function(flat)
+            { this.state.flats.map((flat) =>
               {
-                return <Flat key={flat.name} building={flat}/>
+                return <Flat key={flat.id} selectFlat={this.selectFlat} flat={flat}/>
               })
             }
           </div>
