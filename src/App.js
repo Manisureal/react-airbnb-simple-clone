@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Flat from "./components/flat";
 import GoogleMapReact from 'google-map-react';
+import Marker from "./components/marker"
 
 class App extends Component {
   constructor(props) {
@@ -24,9 +25,9 @@ class App extends Component {
 
   render() {
     const center = {
-      // london co-ordinates
-      lat: 51.5074,
-      lng: 0.1278
+      // France co-ordinates
+      lat: 48.8566,
+      lng: 2.3522
     }
 
     return (
@@ -47,6 +48,10 @@ class App extends Component {
             defaultCenter={center}
             defaultZoom={11}
           >
+          { this.state.flats.map((flat) => {
+              return <Marker lat={flat.lat} lng={flat.lng} text={flat.price} currency={flat.priceCurrency} />
+            })
+          }
           </GoogleMapReact>
         </div>
       </div>
