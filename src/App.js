@@ -33,12 +33,18 @@ class App extends Component {
   }
 
   render() {
-    const center = {
+    let center = {
       // France co-ordinates
       lat: 48.8566,
       lng: 2.3522
     }
 
+    if (this.state.selectedFlat) {
+      center = {
+        lat: this.state.selectedFlat.lat,
+        lng: this.state.selectedFlat.lng
+      }
+    }
 
     return (
       <div className="app">
@@ -55,8 +61,8 @@ class App extends Component {
         </div>
         <div className="map">
           <GoogleMapReact
-            defaultCenter={center}
-            defaultZoom={11}
+            center={center}
+            zoom={13}
           >
           { this.state.flats.map((flat) => {
               return <Marker key={flat.name} lat={flat.lat} lng={flat.lng} text={flat.price} currency={flat.priceCurrency} />
