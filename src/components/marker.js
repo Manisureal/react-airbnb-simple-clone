@@ -3,20 +3,14 @@ import "./marker.css";
 
 class Marker extends React.Component {
 	render() {
-		if (this.props.selectedFlat != null) {
-			if (this.props.selectedFlat.price === this.props.text) {
-				return (
-					<div className="marker selected">
-						{this.props.currency} 
-						{ " " }
-						{this.props.text}
-					</div>
-				);
-			} 
+		let selected = "marker"
+
+		if (this.props.selectedFlat) {
+			selected += " selected"
 		}
 
 		return (
-			<div className="marker">
+			<div className={selected}>
 				{this.props.currency} 
 				{ " " }
 				{this.props.text}
