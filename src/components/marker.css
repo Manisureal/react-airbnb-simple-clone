@@ -8,3 +8,8 @@
 	width:50px;
 	text-align: center;
 }
+
+.selected {
+	background: yellow;
+	border:1px solid red;
+}
